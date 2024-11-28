@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const lawFirms = [
+  {
+    name: 'Crypto Law Partners',
+    location: 'New York, London, Singapore',
+    specialties: ['Digital Asset Regulation', 'ICO/STO Advisory', 'DeFi Compliance'],
+    description: 'Global law firm specializing in blockchain and cryptocurrency regulations.',
+    website: '#'
+  },
+  {
+    name: 'Blockchain Legal Group',
+    location: 'San Francisco, Berlin',
+    specialties: ['Smart Contract Law', 'NFT Regulations', 'Crypto Trading Compliance'],
+    description: 'Technology-focused legal practice for digital asset businesses.',
+    website: '#'
+  },
+  {
+    name: 'DLT Law Associates',
+    location: 'Tokyo, Seoul, Hong Kong',
+    specialties: ['Asian Crypto Regulations', 'Exchange Licensing', 'Privacy Law'],
+    description: 'Leading Asian law firm for cryptocurrency and blockchain matters.',
+    website: '#'
+  }
+];
+---
+
+<Layout title="Partner Law Firms">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">Partner Law Firms</h1>
+    
+    <div class="grid gap-8">
+      {lawFirms.map(firm => (
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <div class="flex justify-between items-start mb-4">
+            <h2 class="text-2xl font-bold text-primary">{firm.name}</h2>
+            <span class="text-gray-600">{firm.location}</span>
+          </div>
+          
+          <p class="text-gray-600 mb-4">{firm.description}</p>
+          
+          <div class="mb-4">
+            <h3 class="font-semibold mb-2">Specialties:</h3>
+            <div class="flex flex-wrap gap-2">
+              {firm.specialties.map(specialty => (
+                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                  {specialty}
+                </span>
+              ))}
+            </div>
+          </div>
+          
+          <a
+            href={firm.website}
+            class="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition-colors"
+          >
+            Visit Website
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-gray-50 rounded-lg p-8 mt-12">
+      <h2 class="text-2xl font-bold mb-4">Join Our Legal Network</h2>
+      <p class="text-gray-600 mb-6">
+        If your law firm specializes in cryptocurrency and blockchain law,
+        we'd love to explore partnership opportunities.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition-colors"
+      >
+        Apply to Join
+      </a>
+    </div>
+  </div>
+</Layout>

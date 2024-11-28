@@ -1,0 +1,20 @@
+{
+  "title": "Crypto Tax Fundamentals",
+  "description": "Essential guide to cryptocurrency taxation and reporting requirements",
+  "duration": "2 hours",
+  "level": "Beginner",
+  "modules": [
+    {
+      "title": "Introduction to Crypto Taxation",
+      "type": "video",
+      "file": "module1/intro.mp4",
+      "duration": "15:00"
+    },
+    {
+      "title": "Tax Reporting Basics",
+      "type": "presentation",
+      "file": "module1/basics.pdf",
+      "duration": "30:00"
+    }
+  ]
+}

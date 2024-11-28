@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NewsCard from '../../components/NewsCard';
+import Pagination from '../../components/Pagination';
+import { fetchNews } from '../../lib/api';
+
+export async function getStaticPaths({ paginate }) {
+  const { totalResults } = await fetchNews(1);
+  const totalPages = Math.ceil(totalResults / 10);
+  
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() },
+  }));
+}
+
+const { page } = Astro.params;
+const currentPage = parseInt(page);
+const { articles, totalResults } = await fetchNews(currentPage);
+const totalPages = Math.ceil(totalResults / 10);
+---
+
+<Layout title={`Latest News - Page ${currentPage}`}>
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">Latest Crypto Legal News</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      {articles.map(article => (
+        <NewsCard
+          client:load
+          title={article.title}
+          description={article.description}
+          url={article.url}
+          imageUrl={article.urlToImage}
+          publishedAt={article.publishedAt}
+          source={article.source.name}
+        />
+      ))}
+    </div>
+
+    <Pagination
+      client:load
+      currentPage={currentPage}
+      totalPages={totalPages}
+      onPageChange={(newPage) => {
+        window.location.href = `/news/${newPage}`;
+      }}
+    />
+  </div>
+</Layout>

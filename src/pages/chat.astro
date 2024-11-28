@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ChatBot from '../components/ChatBot';
+---
+
+<Layout title="Legal Assistant">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">AI Legal Assistant</h1>
+    
+    <div class="mb-8">
+      <p class="text-lg text-gray-600">
+        Get instant answers to your cryptocurrency legal questions. Our AI assistant is trained on the latest regulations
+        and legal frameworks in the crypto space.
+      </p>
+    </div>
+
+    <ChatBot client:load />
+    
+    <div class="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+      <p>
+        <strong>Note:</strong> This AI assistant provides general information and guidance only. 
+        For specific legal advice, please consult with a qualified legal professional.
+      </p>
+    </div>
+  </div>
+</Layout>

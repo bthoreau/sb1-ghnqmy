@@ -1,0 +1,17 @@
+{
+  "title": "Crypto Tax Basics Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is considered a taxable event?",
+      "options": [
+        "Buying cryptocurrency with fiat",
+        "Trading one cryptocurrency for another",
+        "Transferring crypto between your own wallets",
+        "Holding cryptocurrency"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Trading one cryptocurrency for another is a taxable event as it realizes gains or losses."
+    }
+  ]
+}
